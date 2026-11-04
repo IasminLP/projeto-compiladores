@@ -10,7 +10,9 @@ class LexicalError(Exception):
 
     # Formata o erro
     def formato(self) -> str:
-        result = f"Linha {self.linha}, Coluna {self.coluna}: {self.mensagem}"
+        result = (
+            f"Erro léxico. Linha {self.linha}, Coluna {self.coluna}: {self.mensagem}"
+        )
 
         if self.linhaCodigo != "":
             result += "\n"
@@ -48,3 +50,29 @@ def stringNaoFechada():
 # Erro para número mal formado
 def numeroMalFormado(val: str):
     return f"Número mal formado {val!r}"
+
+
+class SyntacticError(Exception):
+    def __init__(
+        self,
+        mensagem: str,
+        linha: int,
+        coluna: int,
+    ):
+        self.mensagem = mensagem
+        self.linha = linha
+        self.coluna = coluna
+        super().__init__(f"Erro Sintático. Linha {linha}, Coluna {coluna}: {mensagem}")
+
+    # Formata o erro
+    def formato(self) -> str:
+        result = f"Linha {self.linha}, Coluna {self.coluna}: {self.mensagem}"
+
+        # if self.linhaCodigo != "":
+        #     result += "\n"
+        #     result += self.linhaCodigo.rstrip("\n")  # Adiciona a linha do código
+        #     result += "\n"
+        #     result += " " * max(0, self.coluna - 1)  # Posiciona a "seta"
+        #     result += "^"  # Adiciona a "seta"
+
+        return result
