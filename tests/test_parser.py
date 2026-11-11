@@ -3,12 +3,9 @@
 
 # ATENCAO: roda com Python 3.14 (igual no test_lexer.py).
 
-# parse_function/parse_return/parse_call dependem de pecas que outros
+# parse_function/parse_return/parse_call dependem de partes que outros
 # membros ainda nao entregaram (parse_expression do Membro 2, parse_block
-# do Membro 4). Entao criei "dublês" (stubs) bem simples aqui no proprio
-# arquivo, so pra simular essas pecas e conseguir testar minha parte
-# sozinha, sem precisar esperar o resto pronto.
-
+# do Membro 4)
 # Quando o parser inteiro estiver pronto (juntando a parte de todo mundo),
 # os 2 testes marcados como "skip" no final passam a valer de verdade.
 
